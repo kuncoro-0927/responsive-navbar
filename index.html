@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-background dark:bg-hitam">
+    <nav class="w-full bg-background dark:bg-hitam fixed z-10">
+        <div class="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+            <div>
+                <div class="flex items-center justify-between py-3 md:py-5 md:block">
+                    <a href="#" class="cursor-pointer">
+                        <h2 class="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold hover:text-kuning dark:hover:text-kuning dark:text-background">
+                            Logo
+                        </h2>
+                    </a>
+                    <div class="md:hidden">
+                        <button id="navbar-toggle" class="p-2 text-hitam dark:text-background rounded-md outline-none hover:text-kuning">
+                            Menu
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="navbar-content" class="hidden flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0">
+                <ul class="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                    <li class="text-hitam hover:text-kuning dark:text-background dark:hover:text-kuning">
+                        <a href="#about" class="smooth-scroll">About</a>
+                    </li>
+                    <li class="text-hitam hover:text-kuning dark:text-background dark:hover:text-kuning">
+                        <a href="#skill" class="smooth-scroll">Skills & Tools</a>
+                    </li>
+                    <li class="text-hitam hover:text-kuning dark:text-background dark:hover:text-kuning">
+                        <a href="#projects" class="smooth-scroll">Projects</a>
+                    </li>
+                    <li class="text-hitam hover:text-kuning dark:text-background dark:hover:text-kuning">
+                        <a href="#contact" class="smooth-scroll">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const navbarToggle = document.getElementById('navbar-toggle');
+        const navbarContent = document.getElementById('navbar-content');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+        navbarToggle.addEventListener('click', () => {
+            navbarContent.classList.toggle('hidden');
+        });
+
+        darkModeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
